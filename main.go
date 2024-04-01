@@ -2,13 +2,19 @@ package main
 
 import (
 	"bufio"
+	_ "embed"
 	"fmt"
 	"os"
 	"os/exec"
 	"strings"
 )
 
+//go:embed VERSION
+var VERSION string
+
 func main() {
+	println(VERSION)
+
 	// Leer el contenido del conanfile.txt
 	conanfile, err := os.Open("conanfile.txt")
 	if err != nil {
